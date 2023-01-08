@@ -1,41 +1,40 @@
-import { Link as ChakraLink, Button } from '@chakra-ui/react'
+import { Box, Flex, Link as ChakraLink, Button } from "@chakra-ui/react";
 
-import { Container } from './Container'
+import { Container } from "./Container";
 
 export const CTA = () => (
-  <Container
-    flexDirection="row"
-    position="fixed"
-    bottom={0}
-    width="full"
-    maxWidth="3xl"
-    py={3}
-  >
-    <Button
-      as={ChakraLink}
-      isExternal
-      href="https://chakra-ui.com"
-      variant="outline"
-      colorScheme="green"
-      rounded="button"
-      flexGrow={1}
-      mx={2}
-      width="full"
+  <Box w="full" px={5} py={5}>
+    <Flex
+      w="full"
+      maxW="2xl"
+      mx="auto"
+      flexDir={{ base: "column", md: "row" }}
+      justifyContent="space-between"
     >
-      chakra-ui
-    </Button>
-    <Button
-      as={ChakraLink}
-      isExternal
-      href="https://github.com/vercel/next.js/blob/canary/examples/with-chakra-ui-typescript"
-      variant="solid"
-      colorScheme="green"
-      rounded="button"
-      flexGrow={3}
-      mx={2}
-      width="full"
-    >
-      View Repo
-    </Button>
-  </Container>
-)
+      <Button
+        as={ChakraLink}
+        href="./samp"
+        variant="solid"
+        colorScheme="green"
+        rounded="button"
+        flexGrow={3}
+        width="full"
+        mb={1}
+      >
+        {"✨ Open [ABI]lity"}
+      </Button>
+      <Button
+        as={ChakraLink}
+        isExternal
+        href="https://github.com/rusvac/ability"
+        variant="outline"
+        rounded="button"
+        flexGrow={1}
+        width="full"
+        mb={1}
+      >
+        {"📝 View Github Repo"}
+      </Button>
+    </Flex>
+  </Box>
+);
