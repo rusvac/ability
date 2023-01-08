@@ -1,19 +1,40 @@
 import { Preset } from "../types";
 
-import SAMPABI from "./samp.json";
-
+import OWNABLEABI from "./ownable.json";
 import ERC20ABI from "./erc20.json";
+import ERC721ABI from "./erc721.json";
+import ERC4626ABI from "./erc4626.json";
 
-export const SAMP: Preset = {
-  id: "samp",
-  name: "samp",
-  interface: SAMPABI,
+import LINKORACLEABI from "./linkOracle.json";
+
+export const OWNABLE: Preset = {
+  id: "Ownable",
+  name: "Ownable",
+  interface: OWNABLEABI,
 };
 
 const ERC20: Preset = {
-  id: "erc20",
+  id: "ERC20",
   name: "ERC20",
   interface: ERC20ABI,
 };
 
-export const abis = [ERC20];
+const ERC721: Preset = {
+  id: "ERC721",
+  name: "ERC721",
+  interface: ERC721ABI,
+};
+
+const ERC4626: Preset = {
+  id: "ERC4626",
+  name: "ERC4626",
+  interface: ERC4626ABI,
+};
+
+const LINKORACLE: Preset = {
+  id: "LinkOracle",
+  name: "Chainlink Oracle",
+  interface: LINKORACLEABI,
+};
+
+export const abis = [OWNABLE, ERC20, ERC721, ERC4626, LINKORACLE];
