@@ -1,5 +1,11 @@
 import { ABIFunction, Preset } from "@/lib/types";
-import { Box, Stack } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Stack,
+  Text,
+  useColorModeValue as mode,
+} from "@chakra-ui/react";
 import { ABIObject } from "./ABIObject";
 
 interface ContractABIProps {
@@ -17,7 +23,7 @@ const ContractABI = ({ abi }: ContractABIProps) => {
   const jsonABI = abi.interface;
 
   const ABIDisplay = (
-    <Stack spacing={1} w="full" maxW="xl">
+    <Stack spacing={1} w="full" maxW="2xl" mx="auto">
       {jsonABI &&
         jsonABI.length > 0 &&
         jsonABI.map((el: ABIFunction, i: number) => (
@@ -28,7 +34,32 @@ const ContractABI = ({ abi }: ContractABIProps) => {
     </Stack>
   );
 
-  return ABIDisplay;
+  return (
+    <Box h="100%">
+      <Box p={1}></Box>
+      <Flex
+        h="full"
+        maxH="90vh"
+        overflowY="scroll"
+        sx={{
+          "&::-webkit-scrollbar-track": {
+            bg: "transparent",
+          },
+          "&::-webkit-scrollbar": {
+            width: "4px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            bg: mode("blue.600", "gray.700"),
+            borderRadius: "20px",
+          },
+        }}
+      >
+        <Box w="full" h="fit-content" p={1}>
+          {ABIDisplay}
+        </Box>
+      </Flex>
+    </Box>
+  );
 };
 
 export default ContractABI;

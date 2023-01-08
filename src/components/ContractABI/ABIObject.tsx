@@ -1,5 +1,12 @@
 import { ABIFunction, ABIFunctionType } from "@/lib/types";
-import { Box, Card, CardBody, CardHeader, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  CardBody,
+  CardHeader,
+  Flex,
+  useColorModeValue as mode,
+} from "@chakra-ui/react";
 
 interface ABIObjectProps {
   obj: ABIFunction;
@@ -21,7 +28,7 @@ export const ABIObject = ({ obj }: ABIObjectProps) => {
 
   return (
     <Card variant="outline" w="full">
-      <CardHeader bg="blackAlpha.100" rounded="md" p={1}>
+      <CardHeader bg={mode("gray.100", "gray.700")} rounded="md" p={1}>
         <Flex w="full" justifyContent={"space-between"}>
           <Box>{name}</Box>
           <Box>
