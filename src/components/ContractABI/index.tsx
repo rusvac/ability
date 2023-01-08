@@ -39,7 +39,7 @@ const ContractABI = ({ abi }: ContractABIProps) => {
       <Box p={1}></Box>
       <Flex
         h="full"
-        maxH="90vh"
+        maxH="94vh"
         overflowY="scroll"
         sx={{
           "&::-webkit-scrollbar-track": {
