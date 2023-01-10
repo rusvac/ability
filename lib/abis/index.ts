@@ -7,6 +7,8 @@ import ERC4626ABI from "./erc4626.json";
 
 import LINKORACLEABI from "./linkOracle.json";
 
+import ERC20LOCKERABI from "./erc20locker.json";
+
 export const OWNABLE: Preset = {
   id: "Ownable",
   name: "Ownable",
@@ -37,4 +39,10 @@ const LINKORACLE: Preset = {
   interface: LINKORACLEABI,
 };
 
-export const abis = [OWNABLE, ERC20, ERC721, ERC4626, LINKORACLE];
+const ERC20LOCKER: Preset = {
+  id: "IERC20LOCKER",
+  name: "IERC20LOCKER",
+  interface: ERC20LOCKERABI,
+};
+
+export const abis = [OWNABLE, ERC20, ERC721, ERC4626, LINKORACLE, ERC20LOCKER];
