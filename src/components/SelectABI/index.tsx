@@ -10,12 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 
-import { abis } from "@/lib/abis";
-
-const SelectABI = ({ addTab }: any) => {
+const SelectABI = ({ tab, updateTab }: any) => {
   const [value, setValue] = useState<string>("");
-
-  const usePresetABI = (ABI: any) => addTab(ABI);
 
   const handleInputChange = (e) => {
     let inputValue = e.target.value;
@@ -26,7 +22,7 @@ const SelectABI = ({ addTab }: any) => {
     } catch (error) {}
 
     if (newABI) {
-      addTab({
+      updateTab(tab, {
         id: "Pasted",
         name: "Pasted ABI",
         interface: newABI,
@@ -39,31 +35,18 @@ const SelectABI = ({ addTab }: any) => {
 
   return (
     <Box>
-      <Box px={1} pt={1}>
+      <Box p={2}>
         <Box>
-          <Box>
-            <Text fontSize="xl">Common ABIs</Text>
-          </Box>
-          {abis.map((el, i) => (
-            <Box key={i} p={1}>
-              <Button w="full" onClick={() => usePresetABI(el)}>
-                {el.name}
-              </Button>
-            </Box>
-          ))}
-        </Box>
-
-        <Box>
-          <Box>
-            <Text fontSize="xl">Paste in an ABI</Text>
-          </Box>
-          <Box p={1}>
-            <Textarea
-              placeholder="paste json"
-              value={value}
-              onChange={handleInputChange}
-            />
-          </Box>
+          <Textarea
+            placeholder="Paste in JSON ABI"
+            resize={"vertical"}
+            value={value}
+            onChange={handleInputChange}
+            border={"2px dotted"}
+            w="full"
+            h="95vh"
+            minH="90vh"
+          />
         </Box>
       </Box>
     </Box>
@@ -71,3 +54,18 @@ const SelectABI = ({ addTab }: any) => {
 };
 
 export default SelectABI;
+
+{
+  /* <Box>
+<Box>
+  <Text fontSize="xl">Common ABIs</Text>
+</Box>
+{abis.map((el, i) => (
+  <Box key={i} p={1}>
+    <Button w="full" onClick={() => usePresetABI(el)}>
+      {el.name}
+    </Button>
+  </Box>
+))}
+</Box> */
+}

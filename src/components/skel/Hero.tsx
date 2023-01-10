@@ -10,8 +10,8 @@ export const Hero = () => (
       py={10}
     >
       <Flex>
-        <Heading fontSize="6vw">{"[ABI]"}</Heading>
-        <Heading fontSize="6vw">{"lity"}</Heading>
+        <Heading fontSize="6vw" mr={1}>{"{ABI}"}</Heading>
+        <Heading fontSize="6vw">{"LITY"}</Heading>
       </Flex>
     </Flex>
     <Flex

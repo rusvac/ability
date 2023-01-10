@@ -21,7 +21,7 @@ export const CTA = () => (
         width="full"
         mb={1}
       >
-        {"✨ Open [ABI]lity"}
+        {"✨ Open App"}
       </Button>
       <Button
         as={ChakraLink}
