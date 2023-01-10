@@ -36,7 +36,6 @@ const ContractABI = ({ abi }: ContractABIProps) => {
 
   return (
     <Box h="100%">
-      <Box p={1}></Box>
       <Flex
         h="full"
         maxH="94vh"

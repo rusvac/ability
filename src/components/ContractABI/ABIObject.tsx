@@ -1,6 +1,8 @@
 import { ABIFunction, ABIFunctionType } from "@/lib/types";
 import {
+  Badge,
   Box,
+  Button,
   Card,
   CardBody,
   CardHeader,
@@ -13,8 +15,6 @@ interface ABIObjectProps {
 }
 
 export const ABIObject = ({ obj }: ABIObjectProps) => {
-  console.log(obj);
-
   const name = obj.name;
   const objType = obj.type;
 
@@ -31,12 +31,41 @@ export const ABIObject = ({ obj }: ABIObjectProps) => {
       <CardHeader bg={mode("gray.100", "gray.700")} rounded="md" p={1}>
         <Flex w="full" justifyContent={"space-between"}>
           <Box>{name}</Box>
-          <Box>
-            {isReadOnly ? "(read only)" : isEvent ? "(event)" : "(mutable)"}
-          </Box>
+          <Box>{obj.type}</Box>
         </Flex>
       </CardHeader>
-      <CardBody p={1}>{objType}</CardBody>
+      <CardBody p={1}>
+        <Box>
+          {inputs && inputs.length > 0 && (
+            <Box w="full">
+              {!isEvent && <Box mr={1}>{"inputs"}</Box>}
+              {inputs.map((el, i) => (
+                <Flex key={i} pl={2} mr={2}>
+                  <Badge mt={1} h="fit-content" colorScheme="orange">
+                    {el.type}
+                  </Badge>
+                  <Box px={2}>{el.name}</Box>
+                </Flex>
+              ))}
+            </Box>
+          )}
+        </Box>
+        <Box>
+          {outputs && outputs.length > 0 && (
+            <Box w="full">
+              {!isEvent && <Box mr={1}>{"outputs"}</Box>}
+              {outputs.map((el, i) => (
+                <Flex key={i} pl={2} mr={2}>
+                  <Badge mt={1} h="fit-content" colorScheme="orange">
+                    {el.type}
+                  </Badge>
+                  <Box px={2}>{el.name}</Box>
+                </Flex>
+              ))}
+            </Box>
+          )}
+        </Box>
+      </CardBody>
     </Card>
   );
 };
